@@ -1,0 +1,35 @@
+{
+  "name": "webbangiay",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "nodemon --inspect src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nhatkhanh224/WebBanGiay-NodeJS.git"
+  },
+  "keywords": [
+    "nodejs",
+    "web",
+    "ban",
+    "hang",
+    "rinn"
+  ],
+  "author": "Khanh Nguyen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nhatkhanh224/WebBanGiay-NodeJS/issues"
+  },
+  "homepage": "https://github.com/nhatkhanh224/WebBanGiay-NodeJS#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "express-handlebars": "^5.2.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.6"
+  }
+}

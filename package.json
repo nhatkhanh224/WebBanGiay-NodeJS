@@ -25,7 +25,8 @@
   },
   "homepage": "https://github.com/nhatkhanh224/WebBanGiay-NodeJS#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.11.7"
   },
   "devDependencies": {
     "express-handlebars": "^5.2.0",

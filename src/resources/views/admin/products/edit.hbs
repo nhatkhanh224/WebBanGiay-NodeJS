@@ -7,7 +7,6 @@
     <title>AdminLTE 3 | Dashboard</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="admin/plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
@@ -39,37 +38,42 @@
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <div class="container">
-                <h2 style="text-align: center;">PRODUCTS</h2>
-                <p>The list of products:</p>
-                <a href="product-create"><i class="fas fa-plus-square" style="font-size:30px;margin-right: 10px;"></i>Add to product</a>
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Thumbnail</th>
-                            <th>Short description</th>
-                            <th>Price</th>
-                            <th>Created at</th>
-                            <th>Option</th>
-                            
+                <form action="product-edit" method="POST">
+                    <div class="form-group">
+                        <label>Name:</label>
+                        <input type="text" class="form-control" name="name" id="name" value="{{products.name}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="sel1">Select list:</label>
+                        <select class="form-control" id="sel1" name="categoryId">
+                            {{!-- {{#select products.categoryId}}
+                            {{#each categories}}
+                            <option value="{{this._id}}">
+                                {{this.name}}</option>
+                            {{/each}}
+                            {{/select}} --}}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Thumbnail:</label>
+                        <input type="text" class="form-control" name="thumbnail" id="thumbnail"
+                            value="{{products.thumbnail}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="comment">Short description:</label>
+                        <textarea class="form-control" rows="5" id="description"
+                            name="description">{{products.description}}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Price:</label>
+                        <input type="text" class="form-control" id="price" name="price"
+                            value="{{products.price}}"></input>
+                    </div>
+                    <button class="btn btn-success">Add</button>
+                </form>
 
-                        </tr>
-                    </thead>
-
-
-                    {{#each products}}
-                    <tbody>
-                        <td>{{this.name}}</td>
-                        <td><img src="{{this.thumbnail}}" alt="" width="200px"></td>
-                        <td>{{this.description}}</td>
-                        <td>{{this.price}} đ</td>
-                        <td>{{this.createAt}}</td>
-                        <td><a href="product-update-{{this._id}}"><i class="fas fa-edit"></i></a></td>
-                    </tbody>
-                    {{/each}}
-
-                </table>
             </div>
+
         </div>
         <!-- /.content-wrapper -->
         {{> admin/footer}}

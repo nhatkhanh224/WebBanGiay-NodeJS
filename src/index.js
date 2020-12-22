@@ -2,8 +2,10 @@ const path = require("path");
 const express = require("express");
 const morgan = require("morgan");
 const handlebars = require("express-handlebars");
-const route=require("./routes");
-const db=require("./config/db");
+const bodyParser = require("body-parser");
+const route = require("./routes");
+const { selectOption } = require("./config/customFunctions");
+const db = require("./config/db");
 db.connect();
 const app = express();
 const port = 3000;
@@ -11,16 +13,19 @@ const port = 3000;
 app.engine(
   "hbs",
   handlebars({
-    extname: '.hbs',
+    extname: ".hbs",
+    defaultLayout: "main",
+    helpers: { select: selectOption },
   })
 );
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "resources", "views"));
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + "/public"));
 app.use(morgan("combined"));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 //Route init
 route(app);
-
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);

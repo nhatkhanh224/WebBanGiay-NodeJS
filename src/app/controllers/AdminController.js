@@ -1,5 +1,6 @@
 const Product = require("../models/Product");
 const Category = require("../models/Category");
+
 const path = require("path");
 const {
   mutipleMongooseToObject,
@@ -37,7 +38,7 @@ class AdminController {
       .then(() => res.redirect(`/admin/products`))
       .catch((error) => {});
   }
-  update(req, res, next) {
+  edit(req, res, next) {
     const id = req.params.id;
     Product.findById(id)
       .then((products) => {
@@ -49,6 +50,12 @@ class AdminController {
         });
       })
       .catch(next);
+  }
+  update(req, res, next) {
+    Product.updateOne({ _id: req.params.id }, req.body) //req.body: Object da sua
+      .then(() => res.redirect(`/admin/products`))
+      .catch(next);
+    // res.json(req.body);
   }
 }
 module.exports = new AdminController();

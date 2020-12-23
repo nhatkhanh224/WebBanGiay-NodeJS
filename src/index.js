@@ -2,6 +2,7 @@ const path = require("path");
 const express = require("express");
 const morgan = require("morgan");
 const handlebars = require("express-handlebars");
+var methodOverride = require('method-override')
 const bodyParser = require("body-parser");
 const route = require("./routes");
 const { selectOption } = require("./config/customFunctions");
@@ -18,12 +19,15 @@ app.engine(
     helpers: { select: selectOption },
   })
 );
+
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "resources", "views"));
 app.use(express.static(__dirname + "/public"));
 app.use(morgan("combined"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(methodOverride('_method'))
 //Route init
 route(app);
 

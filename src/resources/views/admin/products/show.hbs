@@ -41,17 +41,29 @@
             <div class="container">
                 <h2 style="text-align: center;">PRODUCTS</h2>
                 <p>The list of products:</p>
-                <a href="product-create"><i class="fas fa-plus-square" style="font-size:30px;margin-right: 10px;"></i>Add to product</a>
+                <div style="margin-bottom:10px;">
+                    <a href="product-create"><i class="fas fa-plus-square"
+                            style="font-size:30px;margin-right: 10px;"></i>Add to product</a>
+
+                </div>
+
                 <table class="table table-bordered">
                     <thead>
                         <tr>
+                            <th>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" value="">Select all
+                                    </label>
+                                </div>
+                            </th>
                             <th>Name</th>
                             <th>Thumbnail</th>
                             <th>Short description</th>
                             <th>Price</th>
                             <th>Created at</th>
                             <th>Option</th>
-                            
+
 
                         </tr>
                     </thead>
@@ -59,16 +71,48 @@
 
                     {{#each products}}
                     <tbody>
+                        <td>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" value="">
+                                </label>
+                            </div>
+                        </td>
                         <td>{{this.name}}</td>
                         <td><img src="{{this.thumbnail}}" alt="" width="200px"></td>
                         <td>{{this.description}}</td>
                         <td>{{this.price}} đ</td>
                         <td>{{this.createAt}}</td>
-                        <td><a href="product-edit-{{this._id}}"><i class="fas fa-edit"></i></a></td>
+                        <td><a href="product-edit-{{this._id}}"><i class="fas fa-edit"></i></a>
+                            <a href="product-create" data-toggle="modal" data-id="{{this._id}}"
+                                data-target="#delete-product-model"><i class="fas fa-trash-alt"></i></a>
+                        </td>
                     </tbody>
                     {{/each}}
 
                 </table>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="delete-product-model" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Delete course</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to delete ?
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btn-delete-product" type="button" class="btn btn-danger">Delete</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                    </div>
+                </div>
             </div>
         </div>
         <!-- /.content-wrapper -->
@@ -76,10 +120,36 @@
 
 
     </div>
+    {{!-- Delete form --}}
+    <form method="POST" name="delete-product-form">
+    </form>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var productId;
+            var deleteForm = document.forms['delete-product-form'];
+
+
+
+            $('#delete-product-model').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget);
+                productId = button.data('id'); //Get id
+
+            });
+            var btnDeleteProduct = document.getElementById('btn-delete-product');
+            btnDeleteProduct.onclick = function (event) {
+                deleteForm.action = 'products/' + productId + '?_method=DELETE';
+                deleteForm.submit();
+            }
+
+
+        });
+    </script>
     <!-- ./wrapper -->
 
     <!-- jQuery -->
     <script src="admin/plugins/jquery/jquery.min.js"></script>
+
+
     <!-- jQuery UI 1.11.4 -->
     <script src="admin/plugins/jquery-ui/jquery-ui.min.js"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -112,6 +182,7 @@
     <script src="admin/dist/js/pages/dashboard.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="admin/dist/js/demo.js"></script>
+
 </body>
 
 </html>

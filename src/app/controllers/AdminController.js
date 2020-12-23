@@ -57,5 +57,10 @@ class AdminController {
       .catch(next);
     // res.json(req.body);
   }
+  destroy(req, res,next) {
+    Product.deleteOne({ _id: req.params.id }, req.body) //req.body: Object da sua
+    .then(() => res.redirect(`/admin/products`))
+    .catch(next);
+  }
 }
 module.exports = new AdminController();

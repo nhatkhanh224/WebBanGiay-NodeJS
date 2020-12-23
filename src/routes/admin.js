@@ -10,6 +10,7 @@ router.get("/product-edit-:id", adminController.edit);
 router.post("/product-store", adminController.store);
 router.get("/products", adminController.show);
 router.put("/products/:id",adminController.update);
+router.delete("/products/:id",adminController.destroy);
 router.use("/", adminController.index);
 
 module.exports = router;

@@ -1,13 +1,12 @@
 const Product = require("../models/Product");
 const Category = require("../models/Category");
 
-const path = require("path");
+
 const {
   mutipleMongooseToObject,
   mongooseToObject,
 } = require("../../util/mongoose");
-const upload = require("../middleware/uploadMiddleware");
-const Resize = require("../root/Resize");
+
 class AdminController {
   index(req, res) {
     res.render("admin/admin");
@@ -17,6 +16,7 @@ class AdminController {
       .then((products) => {
         res.render("admin/products/show", {
           products: mutipleMongooseToObject(products),
+          
         });
       })
       .catch(next);

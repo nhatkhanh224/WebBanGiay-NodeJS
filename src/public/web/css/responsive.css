@@ -1,0 +1,83 @@
+@media (max-width: 1023px) {
+}
+/* Tablet */
+@media (min-width: 740px) and (max-width: 1023px) {
+  .hide-tablet {
+    display: none;
+  }
+  .navbar-menu
+  {
+    display: block;
+  }
+  .navbar-img
+  {
+    
+    margin-top: 10px;
+  }
+  .navbar-option
+  {
+    margin-right: 10px;
+  }
+  .hotline-body {
+    left: 20%;
+  }
+  .new-letter-body {
+    left: 0%;
+    top: 0%;
+  }
+  .new-letter-input {
+    width: 730px;
+    margin-bottom: 10px;
+  }
+}
+/* Mobile */
+@media (max-width: 739px) {
+  .hide-mobile {
+    display: none;
+  }
+  .navbar-menu
+  {
+    display: block;
+  }
+  .hotline-body {
+    left: 0%;
+  }
+  .hotline {
+    margin: 30px 15px;
+    background-attachment: unset;
+  }
+  .contact {
+    margin: 30px 15px;
+  }
+  .new-letter-body {
+    left: 0%;
+    top: 0%;
+  }
+  .new-letter-input {
+    width: 350px;
+    margin-bottom: 10px;
+  }
+}
+/* Iphone 6/7/8 plus */
+@media (max-width: 736px) and (min-width:414px){
+  .banner-item{
+    margin-top: 30px;
+  }
+  .banner-two-img{
+    margin-top: 30px;
+  }
+  .new-letter-btn
+  {
+    width: 348px;
+  }
+  .scrollToTop
+  {
+    padding:14px;
+    width: 50px;
+    height: 50px;
+  }
+  .footer-header-payment-logo{
+    justify-content: space-around;
+  }
+}
+

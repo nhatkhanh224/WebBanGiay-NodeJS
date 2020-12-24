@@ -1,0 +1,362 @@
+.slide-menu
+{
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background-color: rgba(0,0,0,0.5);
+  position: fixed;
+  display: none;
+  
+}
+.slide-menu-list
+{
+  list-style: none;
+  padding:9px 20px;
+  
+}
+.slide-menu-list-item
+{
+  color: #fff;
+  font-size: 14px;
+  border-bottom: 1px solid #f56472;
+  padding: 10px 0px;
+}
+.slide-menu-left {
+  height: 100%;
+  width: 280px;
+  background-color:#f72b3f;
+  position: fixed;
+  z-index: 999;
+  display: none;
+}
+.slide-menu-header {
+  background-color: #f5f6fb;
+  padding-left: 67px;
+  padding-bottom: 26px;
+  padding-top: 26px;
+}
+.header {
+  height: 140px;
+  width: 100%;
+}
+.header-navbar {
+  height: 40px;
+  background-color: #212121;
+  color: white;
+}
+.header-navbar-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.header-navbar-item {
+  font-size: 15px;
+  padding: 6px 5px;
+  font-weight: 400;
+}
+.navbar {
+  padding: 0px 0px;
+}
+.navbar-menu {
+  display: none;
+  font-size: 35px;
+}
+.navbar-main {
+  height: 100px;
+}
+.navbar-main-list {
+  display: flex;
+  list-style: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+.navbar-main-item {
+  padding: 35px 20px;
+  font-size: 15px;
+  margin: 0 2px;
+}
+
+.navbar-option {
+  font-size: 18px;
+}
+.navbar-option-item {
+  padding: 5px 5px;
+}
+
+.navbar-main-link {
+  width: 124px;
+  color: #212121;
+  font-weight: 450;
+  text-decoration: none;
+}
+.navbar-main-item-active {
+  background-color: #f72b3f;
+  height: 100px;
+}
+.navbar-main-item:hover {
+  background-color: #f72b3f;
+}
+.navbar-main-link:hover {
+  color: #fff;
+  text-decoration: none;
+}
+.slider {
+  width: 100%;
+}
+.carousel-inner img {
+  width: 100%;
+}
+.banner {
+  margin-top: 50px;
+}
+.banner-img {
+  width: 100%;
+}
+.new-product {
+  padding: 0px 22px;
+}
+
+.new-product-img img {
+  width: 100%;
+}
+.new-product-button button {
+  height: 35px;
+  width: 100%;
+  background-color: #f72b3f;
+  color: #fff;
+  font-size: 12px;
+  border: none;
+}
+.new-product-infor {
+  text-align: center;
+}
+.new-product-infor span {
+  color: #f72b3f;
+  font-size: 13px;
+}
+.new-product-title {
+  text-align: center;
+  color: #252525;
+  font-weight: 400;
+  font-size: 25px;
+  margin-top: 50px;
+  margin-bottom: 52px;
+}
+.banner-two {
+  margin-top: 34px;
+}
+.banner-two-img img {
+  width: 100%;
+}
+.hotline {
+  background-image: url(http://bizweb.dktcdn.net/100/369/492/themes/741260/assets/bg_hotline.jpg?1594607980046);
+  margin: 30px 0;
+  background-repeat: no-repeat;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  text-align: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+  position: relative;
+  height: 360px;
+}
+.hotline-center {
+  height: 214px;
+  position: relative;
+}
+.hotline-body {
+  color: #fff;
+  text-align: center;
+  display: inline-block;
+  max-width: 470px;
+  position: absolute;
+  top: 5%;
+  left: 35%;
+}
+.hotline-body h2 {
+  font-size: 40px;
+}
+.hotline-body a {
+  font-size: 50px;
+  color: #fff;
+}
+.hotline-body p {
+  font-size: 15px;
+}
+.hotline-body a:hover {
+  cursor: pointer;
+  text-decoration: none;
+  color: #f72b3f;
+}
+.new {
+  margin-bottom: 30px;
+}
+.new-title {
+  text-align: center;
+  color: #252525;
+  font-weight: 400;
+  font-size: 25px;
+  margin-top: 50px;
+  margin-bottom: 52px;
+}
+.new-img img {
+  width: 100%;
+}
+.new-content {
+  background-color: #f5f6fb;
+  padding: 1px 2px;
+}
+.new-content h3 {
+  text-align: center;
+}
+.new-content h3 a {
+  color: #212121;
+  font-size: 15px;
+}
+.new-content h3 a:hover {
+  text-decoration: none;
+  color: #f72b3f;
+}
+.new-description p {
+  text-align: center;
+  font-size: 12px;
+}
+.new-infor {
+  text-align: center;
+  font-size: 12px;
+  background-color: #fff;
+  padding: 10px 2px;
+}
+.new-infor b {
+  color: #747373;
+}
+.new-infor i {
+  color: #747373;
+}
+.new-infor-date {
+  margin-right: 5px;
+}
+.new-infor span {
+  color: #747373;
+}
+.contact {
+  background-image: url(http://bizweb.dktcdn.net/100/369/492/themes/741260/assets/bg_footer.jpg?1594607980046);
+
+  background-repeat: no-repeat;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  text-align: center;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  height: 332px;
+}
+.new-letter {
+  height: 191px;
+  position: relative;
+}
+.new-letter-body {
+  position: absolute;
+  left: 24%;
+  top: 30%;
+}
+.new-letter-title {
+  color: #fff;
+}
+.new-letter-description {
+  color: #fff;
+}
+.new-letter-heading {
+  padding-bottom: 17px;
+}
+.new-letter-title {
+  font-size: 25px;
+  padding-bottom: 14px;
+}
+.new-letter-description {
+  font-size: 13px;
+}
+.new-letter-input {
+  height: 51px;
+  width: 770px;
+  border: none;
+  padding-top: 6px;
+  padding-left: 19px;
+  padding-bottom: 6px;
+  font-size: 13px;
+  color: #747373;
+}
+.new-letter-btn {
+  height: 52px;
+  width: 169px;
+  padding: 0;
+  color: #fff;
+  font-size: 15px;
+  border: none;
+  background-color: #f72b3f;
+  margin-left: -3px;
+}
+.footer-head-title {
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+.footer-head-title h4 {
+  font-size: 18px;
+}
+.footer-head-address {
+  font-size: 12px;
+  padding-right: 15px;
+}
+.footer-head-list {
+  list-style: none;
+  line-height: 35px;
+  padding: 1px 12px;
+  font-size: 13px;
+}
+.footer-head-list li a {
+  color: #747373;
+}
+.footer-head-list li a:hover {
+  text-decoration: none;
+  color: #f72b3f;
+}
+.footer-header-payment-logo {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+.footer-header-payment-logo-img {
+  width: 68px;
+}
+.footer-last {
+  color: #fff;
+  background-color: #212121;
+  font-size: 15px;
+  text-align: center;
+  padding: 10px 2px;
+}
+.scrollToTop{
+  width:60px; 
+  height:60px;
+  padding:20px; 
+  text-align:center; 
+  background: #f72b3f;
+  font-weight: bold;
+  color: #fff;
+  border-radius: 50%;
+  text-decoration: none;
+  position:fixed;
+  bottom:75px;
+  right:40px;
+  font-size: 15px;
+
+  
+  
+}
+.scrollToTop:hover{
+  text-decoration:none;
+}

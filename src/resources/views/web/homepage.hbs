@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web bán hàng</title>
+    <link rel="stylesheet" href="web/css/index.css" />
+    <link rel="stylesheet" href="web/css/base.css" />
+    <link rel="stylesheet" href="web/css/responsive.css" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="web/index.js"></script>
+    <link rel="stylesheet" href="./font/fontawesome-free-5.14.0/css/all.min.css" />
+    <link rel="shortcut icon" type="image/png"
+        href="https://bizweb.dktcdn.net/100/369/492/themes/741260/assets/logo.png?1594607980046" />
+</head>
+
+<body>
+    <div class="app">
+        {{> web/header}}
+        <div class="slider">
+            <div id="demo" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ul class="carousel-indicators">
+                    <li data-target="#demo" data-slide-to="0" class="active"></li>
+                    <li data-target="#demo" data-slide-to="1"></li>
+                    <li data-target="#demo" data-slide-to="2"></li>
+                </ul>
+
+                <!-- The slideshow -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://bizweb.dktcdn.net/100/369/492/themes/741260/assets/slider_1.jpg?1594607980046"
+                            alt="Los Angeles" />
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://bizweb.dktcdn.net/100/369/492/themes/741260/assets/slider_1.jpg?1594607980046"
+                            alt="Chicago" />
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://bizweb.dktcdn.net/100/369/492/themes/741260/assets/slider_1.jpg?1594607980046"
+                            alt="New York" />
+                    </div>
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next" href="#demo" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
+            </div>
+        </div>
+        <div class="banner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="banner-item">
+                            <img class="banner-img"
+                                src="http://bizweb.dktcdn.net/thumb/large/100/369/492/themes/741260/assets/banner_1.jpg?1594607980046"
+                                alt="" />
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="banner-item">
+                            <img class="banner-img"
+                                src="https://bizweb.dktcdn.net/thumb/large/100/369/492/themes/741260/assets/banner_2.jpg?1594607980046"
+                                alt="" />
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="banner-item">
+                            <img class="banner-img"
+                                src="https://bizweb.dktcdn.net/thumb/large/100/369/492/themes/741260/assets/banner_3.jpg?1594607980046"
+                                alt="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="new-product">
+            <div class="container">
+                <h2 class="new-product-title">HÀNG MỚI VỀ</h2>
+            </div>
+            <div class="row">
+                {{#each products}}
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="new-product-img">
+                        <a href=""><img src="{{this.thumbnail}}" alt="" /></a>
+
+                    </div>
+                    <div class="new-product-button">
+                        <button>MUA NGAY</button>
+                    </div>
+                    <div class="new-product-infor">
+                        <h3>{{this.name}}</h3>
+                        <span>{{this.price}} đ</span>
+                    </div>
+                </div>
+                {{/each}}
+
+            </div>
+        </div>
+        <div class="banner-two">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="banner-two-img">
+                            <img src="https://bizweb.dktcdn.net/thumb/grande/100/369/492/themes/741260/assets/banner_1_a.jpg?1594607980046"
+                                alt="" />
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="banner-two-img">
+                            <img src="https://bizweb.dktcdn.net/thumb/grande/100/369/492/themes/741260/assets/banner_2_a.jpg?1594607980046"
+                                alt="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="new-product">
+            <div class="container">
+                <h2 class="new-product-title">HÀNG BÁN CHẠY</h2>
+            </div>
+            <div class="row">
+                {{#each products}}
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="new-product-img">
+                        <a href=""><img src="{{this.thumbnail}}" alt="" /></a>
+
+                    </div>
+                    <div class="new-product-button">
+                        <button>MUA NGAY</button>
+                    </div>
+                    <div class="new-product-infor">
+                        <h3>{{this.name}}</h3>
+                        <span>{{this.price}} đ</span>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        <div class="hotline">
+            <div class="hotline-center">
+                <div class="hotline-body">
+                    <h2>Hotline</h2>
+                    <a href="">0914170417</a>
+                    <p>
+                        Chúng tôi cam kết 100% các sản phẩm giày dép của chúng tôi nguồn
+                        gốc xuất xứ nhập khẩu chính hãng 100%
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="new">
+            <div class="container">
+                <h3 class="new-title">TIN THỜI TRANG</h3>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="new-img">
+                            <img src="https://bizweb.dktcdn.net/thumb/large/100/369/492/articles/photo-1514989940723-e8e51635b782.jpg?v=1572232563380"
+                                alt="" />
+                        </div>
+                        <div class="new-infor">
+                            <i class="far fa-calendar"></i>
+                            <b class="new-infor-date">28/10/2019</b>
+                            <span>Đăng bởi: Rinn</span>
+                        </div>
+                        <div class="new-content">
+                            <h3>
+                                <a href="">Hướng dẫn cách làm trắng đế giày bị ố vàng chuẩn chỉ</a>
+                            </h3>
+                            <div class="new-description">
+                                <p>
+                                    Adidas là một trong những hàng thời trang sneaker lớn nhất
+                                    hiện nay của thế giới ...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 hide-mobile">
+                        <div class="new-img">
+                            <img src="https://bizweb.dktcdn.net/thumb/large/100/369/492/articles/photo-1514989940723-e8e51635b782.jpg?v=1572232563380"
+                                alt="" />
+                        </div>
+                        <div class="new-infor">
+                            <i class="far fa-calendar"></i>
+                            <b class="new-infor-date">28/10/2019</b>
+                            <span>Đăng bởi: Rinn</span>
+                        </div>
+                        <div class="new-content">
+                            <h3>
+                                <a href="">Hướng dẫn cách làm trắng đế giày bị ố vàng chuẩn chỉ</a>
+                            </h3>
+                            <div class="new-description">
+                                <p>
+                                    Adidas là một trong những hàng thời trang sneaker lớn nhất
+                                    hiện nay của thế giới ...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 hide-tablet hide-mobile">
+                        <div class="new-img">
+                            <img src="https://bizweb.dktcdn.net/thumb/large/100/369/492/articles/photo-1514989940723-e8e51635b782.jpg?v=1572232563380"
+                                alt="" />
+                        </div>
+                        <div class="new-infor">
+                            <i class="far fa-calendar"></i>
+                            <b class="new-infor-date">28/10/2019</b>
+                            <span>Đăng bởi: Rinn</span>
+                        </div>
+                        <div class="new-content">
+                            <h3>
+                                <a href="">Hướng dẫn cách làm trắng đế giày bị ố vàng chuẩn chỉ</a>
+                            </h3>
+                            <div class="new-description">
+                                <p>
+                                    Adidas là một trong những hàng thời trang sneaker lớn nhất
+                                    hiện nay của thế giới ...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{> web/footer}}
+    </div>
+</body>
+
+</html>

@@ -5,6 +5,7 @@ const Product = new Schema({
   thumbnail: { type: String },
   description: { type: String },
   price: { type: Number },
+  slug: { type: String },
   categoryId: { type: String },
   createAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },

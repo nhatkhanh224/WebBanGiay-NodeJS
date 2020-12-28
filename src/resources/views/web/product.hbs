@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web bán hàng</title>
+    <link rel="stylesheet" href="web/css/product.css" />
+    <link rel="stylesheet" href="web/css/base.css" />
+    <link rel="stylesheet" href="web/css/responsive.css" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="web/js/product-detail.js"></script>
+    <script src="web/js/multislider.js"></script>
+    <link rel="stylesheet" href="./font/fontawesome-free-5.14.0/css/all.min.css" />
+    <link rel="shortcut icon" type="image/png"
+        href="https://bizweb.dktcdn.net/100/369/492/themes/741260/assets/logo.png?1594607980046" />
+</head>
+
+<body>
+    <div class="app">
+        {{> web/header}}
+        <div class="header-title">
+            <div class="header-title-body">
+                <h3 class="header-title-body-category">{{slug}}</h3>
+                <span>Trang chủ /</span>
+
+                <span><a href="#" class="header-title-body-link">{{slug}}</a></span>
+            </div>
+        </div>
+
+        <div class="product-tab">
+            <div class="container">
+                <div class="product-tab-list">
+                    <div class="product-tab-item">
+                        <span class="select-input-label">Danh mục</span>
+                        <i class="select-input-icon fa fa-angle-down"></i>
+                        <!-- List-options -->
+                        <!-- <ul class="select-input-list">
+                        <li class="select-input-item">
+                            <a href="" class="select-input-link">Giá: Thấp đến cao</a>
+                            
+                        </li>
+                        <li class="select-input-item">
+                            
+                            <a href="" class="select-input-link">Giá: Cao đến thấp</a>
+                        </li>
+                        
+                    </ul> -->
+                    </div>
+                    <div class="product-tab-item">
+                        <span class="select-input-label">Màu săc</span>
+                        <i class="select-input-icon fa fa-angle-down"></i>
+                        <!-- List-options -->
+                        <!-- <ul class="select-input-list">
+                          <li class="select-input-item">
+                              <a href="" class="select-input-link">Giá: Thấp đến cao</a>
+                              
+                          </li>
+                          <li class="select-input-item">
+                              
+                              <a href="" class="select-input-link">Giá: Cao đến thấp</a>
+                          </li>
+                          
+                      </ul> -->
+                    </div>
+                    <div class="product-tab-item">
+                        <span class="select-input-label">Kích cỡ</span>
+                        <i class="select-input-icon fa fa-angle-down"></i>
+                        <!-- List-options -->
+                        <!-- <ul class="select-input-list">
+                          <li class="select-input-item">
+                              <a href="" class="select-input-link">Giá: Thấp đến cao</a>
+                              
+                          </li>
+                          <li class="select-input-item">
+                              
+                              <a href="" class="select-input-link">Giá: Cao đến thấp</a>
+                          </li>
+                          
+                      </ul> -->
+                    </div>
+                    <div class="product-tab-item">
+                        <span class="select-input-label">Thương hiệu</span>
+                        <i class="select-input-icon fa fa-angle-down"></i>
+                        <!-- List-options -->
+                        <!-- <ul class="select-input-list">
+                          <li class="select-input-item">
+                              <a href="" class="select-input-link">Giá: Thấp đến cao</a>
+                              
+                          </li>
+                          <li class="select-input-item">
+                              
+                              <a href="" class="select-input-link">Giá: Cao đến thấp</a>
+                          </li>
+                          
+                      </ul> -->
+                    </div>
+                    <div class="product-tab-item">
+                        <span class="select-input-label">Sắp xếp theo</span>
+                        <i class="select-input-icon fa fa-angle-down"></i>
+                        <!-- List-options -->
+                        <!-- <ul class="select-input-list">
+                          <li class="select-input-item">
+                              <a href="" class="select-input-link">Giá: Thấp đến cao</a>
+                              
+                          </li>
+                          <li class="select-input-item">
+                              
+                              <a href="" class="select-input-link">Giá: Cao đến thấp</a>
+                          </li>
+                          
+                      </ul> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product-list">
+            <div class="container">
+                <div class="row">
+                    {{#each productsOfSlug}}
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <div class="product-list-item">
+                            <div class="product-list-item-img">
+                                <a href="{{this.slug}}-{{this._id}}"><img src="{{this.thumbnail}}" alt="" /></a>
+
+                            </div>
+
+                            <div class="product-list-button">
+                                <a href="{{this.slug}}-{{this._id}}">MUA NGAY</a>
+                            </div>
+                            <div class="product-list-infor">
+                                <h3>{{this.name}}</h3>
+                                <span>{{this.price}} đ</span>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="product-suggestion">
+                <div class="container">
+                    <h3 class="product-suggestion-title">CÓ THỂ BẠN SẼ THÍCH</h3>
+
+                    <div id="mixedSlider">
+                        <div class="MS-content">
+                            <div class="item">
+                                <div class="imgTitle">
+                                    <img src="http://bizweb.dktcdn.net/thumb/large/100/369/492/products/apuwyfecodzh2q1nkpa1.jpg?v=1572234111000"
+                                        alt="" />
+                                </div>
+                                <div class="product-suggestion-button">
+                                    <a href="product-detail.html" class="product-suggestion-button-link">MUA NGAY</a>
+                                </div>
+                                <div class="product-suggestion-infor">
+                                    <h3>Adidas NEO</h3>
+                                    <span>2,000,000 đ</span>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="imgTitle">
+                                    <img src="//bizweb.dktcdn.net/thumb/large/100/369/492/products/ulq44ghtk7eufmgaqg9f.jpg?v=1572235148000"
+                                        alt="" />
+                                </div>
+                                <div class="product-suggestion-button">
+                                    <a href="product-detail.html" class="product-suggestion-button-link">MUA NGAY</a>
+                                </div>
+                                <div class="product-suggestion-infor">
+                                    <h3>Adidas NEO</h3>
+                                    <span>2,000,000 đ</span>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="imgTitle">
+                                    <img src="http://bizweb.dktcdn.net/thumb/large/100/369/492/products/kp2igvwpe3fcp5aflh6y.jpg?v=1572235245000"
+                                        alt="" />
+                                </div>
+                                <div class="product-suggestion-button">
+                                    <a href="product-detail.html" class="product-suggestion-button-link">MUA NGAY</a>
+                                </div>
+                                <div class="product-suggestion-infor">
+                                    <h3>Adidas NEO</h3>
+                                    <span>2,000,000 đ</span>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="imgTitle">
+                                    <img src="http://bizweb.dktcdn.net/thumb/large/100/369/492/products/mett1dtocrrrd3fheor1.jpg?v=1572235498000"
+                                        alt="" />
+                                </div>
+                                <div class="product-suggestion-button">
+                                    <a href="product-detail.html" class="product-suggestion-button-link">MUA NGAY</a>
+                                </div>
+                                <div class="product-suggestion-infor">
+                                    <h3>Adidas NEO</h3>
+                                    <span>2,000,000 đ</span>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="imgTitle">
+                                    <img src="http://bizweb.dktcdn.net/thumb/large/100/369/492/products/hbu97l3vnaf68lb9mpnz.jpg?v=1572233341000"
+                                        alt="" />
+                                </div>
+
+                                <div class="product-suggestion-button">
+                                    <a href="product-detail.html" class="product-suggestion-button-link">MUA NGAY</a>
+                                </div>
+                                <div class="product-suggestion-infor">
+                                    <h3>Adidas NEO</h3>
+                                    <span>2,000,000 đ</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="MS-controls">
+                            <button class="MS-left">
+                                <i class="fa fa-angle-left" aria-hidden="true"></i>
+                            </button>
+                            <button class="MS-right">
+                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{> web/footer}}
+    </div>
+    <script>
+        $('#basicSlider').multislider({
+            continuous: true,
+            duration: 2000
+        });
+        $('#mixedSlider').multislider({
+            duration: 750,
+            interval: 3000
+        });
+    </script>
+</body>
+<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36251023-1']);
+    _gaq.push(['_setDomainName', 'jqueryscript.net']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+
+</body>
+
+</html>

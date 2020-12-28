@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web bán hàng</title>
+    <link rel="stylesheet" href="web/css/product-detail.css" />
+    <link rel="stylesheet" href="web/css/base.css" />
+    <link rel="stylesheet" href="web/css/responsive.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="web/js/product-detail.js"></script>
+    <script src="web/js/multislider.js"></script>
+    <link rel="stylesheet" href="./font/fontawesome-free-5.14.0/css/all.min.css" />
+    <link rel="shortcut icon" type="image/png"
+        href="https://bizweb.dktcdn.net/100/369/492/themes/741260/assets/logo.png?1594607980046" />
+</head>
+
+<body>
+    <div class="app">
+        {{> web/header}}
+
+        <!-- Title Header -->
+        <div class="header-title">
+            <div class="header-title-body">
+                <h3 class="header-title-body-category">NIKE</h3>
+                <span>Trang chủ /</span>
+                <span>Nike /</span>
+                <span><a href="#" class="header-title-body-link">Nike Air Force 1</a></span>
+            </div>
+        </div>
+
+        <div class="product">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <div class="product-img">
+                            <div class="product-img-big">
+                                <img class="product-img-big-img" src="{{details.thumbnail}}" alt="" />
+                            </div>
+                            <div class="product-img-small">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-4">
+                                        <div class="product-img-small-item">
+                                            <img src="https://bizweb.dktcdn.net/thumb/small/100/369/492/products/apuwyfecodzh2q1nkpa1.jpg?v=1572234111357"
+                                                alt="" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-4">
+                                        <div class="product-img-small-item">
+                                            <img src="https://bizweb.dktcdn.net/thumb/small/100/369/492/products/apuwyfecodzh2q1nkpa1.jpg?v=1572234111357"
+                                                alt="" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-4">
+                                        <div class="product-img-small-item">
+                                            <img src="https://bizweb.dktcdn.net/thumb/small/100/369/492/products/apuwyfecodzh2q1nkpa1.jpg?v=1572234111357"
+                                                alt="" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-4">
+                                        <div class="product-img-small-item">
+                                            <img src="https://bizweb.dktcdn.net/thumb/small/100/369/492/products/apuwyfecodzh2q1nkpa1.jpg?v=1572234111357"
+                                                alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-img-slide"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <div class="product-information">
+                            <h3 class="product-name">{{details.name}}</h3>
+                            <span class="product-name-brand">Thương hiệu: {{details.slug}} /</span>
+
+                            <hr />
+                            <form action="">
+                                <div class="price">
+                                    <span class="discount-price">{{details.price}} đ</span>
+                                    <span class="old-price">2.000.000đ</span>
+                                </div>
+                                <div class="form-option">
+                                    <div class="quantum">
+                                        <div class="btn-number">
+                                            <button type="button" class="btn-number-minus" onclick='javascript:process(-1)'>-</button>
+                                            <input type="text" value="1" size="10" class="btn-number-input" id='v' name='v' />
+                                            <button type="button" class="btn-number-plus" onclick='javascript:process(1)'>+</button>
+                                        </div>
+                                    </div>
+                                    <div class="form-option-button">
+                                        <button class="btn-add-to-cart">Mua ngay</button>
+                                    </div>
+                                </div>
+                                <div class="product-information-footer">
+                                    <div class="hotline-product">
+                                        Tư vấn
+                                        <a href="">0914170417</a>
+                                    </div>
+                                    <div class="payment-product">
+                                        <img src="https://bizweb.dktcdn.net/100/369/492/themes/741260/assets/payment.png?1594607980046"
+                                            alt="" />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product-banner">
+            <div class="container">
+                <img src="https://bizweb.dktcdn.net/100/369/492/themes/741260/assets/bg_product_col.jpg?1594607980046"
+                    alt="" />
+            </div>
+        </div>
+        <div class="product-tab">
+            <div class="container">
+                <div class="tab-panels">
+                    <ul class="tabs">
+                        <li rel="panel1" class="active">Thông tin sản phẩm</li>
+                        <li rel="panel2">Chính sách bán hàng</li>
+                        <li rel="panel3">Đánh giá</li>
+                    </ul>
+
+                    <div id="panel1" class="panel active">
+                        <h3>Nike Air Force 1</h3>
+                        <p>
+                            Nike quay trở lại với bước đột phá hoàn toàn mới bằng một phiên
+                            bản nâng cao hơn .
+                            <br />
+
+                            Để tăng tuổi thọ của đôi giày, Nike sử dụng da lộn cao cấp phía
+                            mũi giày và sau gót, giày Nike trở nên chắc chắn hơn bao giờ
+                            hết. Bộ đế cao su lưu hóa mang đến cho bạn cảm giác choáng ngợp
+                            bởi sự chắc chắn khi đi giày.
+                        </p>
+                        <p>
+                            Hơn nữa với kiểu dáng hợp thời trang, màu sắc nhã nhặn bạn có
+                            thể đi bất cứ đâu, mặc trang phục gì đều khiến mình trở nên nổi
+                            bật và tự tin. Hẳn là một thiếu sót lớn khi trong tủ giày nhà
+                            bạn thiếu đi đôi giày Nike .
+                        </p>
+                        <p>
+                            Giày Nike chính hãng tại TheFox được nhập khẩu trực tiếp tại Mỹ
+                            qua đường hàng không. Full box, đầy đủ phụ kiện.
+                        </p>
+                    </div>
+                    <div id="panel2" class="panel">
+                        <p>Chính sách</p>
+                    </div>
+                    <div id="panel3" class="panel">
+                        <p>Đánh giá</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="product-suggestion">
+                <div class="container">
+                    <h3 class="product-suggestion-title">CÓ THỂ BẠN SẼ THÍCH</h3>
+
+                    <div id="mixedSlider">
+                        <div class="MS-content">
+                            <div class="item">
+                                <div class="imgTitle">
+                                    <img src="http://bizweb.dktcdn.net/thumb/large/100/369/492/products/apuwyfecodzh2q1nkpa1.jpg?v=1572234111000"
+                                        alt="" />
+                                </div>
+                                <div class="product-suggestion-button">
+                                    <button>MUA NGAY</button>
+                                </div>
+                                <div class="product-suggestion-infor">
+                                    <h3>Adidas NEO</h3>
+                                    <span>2,000,000 đ</span>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="imgTitle">
+                                    <img src="//bizweb.dktcdn.net/thumb/large/100/369/492/products/ulq44ghtk7eufmgaqg9f.jpg?v=1572235148000"
+                                        alt="" />
+                                </div>
+                                <div class="product-suggestion-button">
+                                    <button>MUA NGAY</button>
+                                </div>
+                                <div class="product-suggestion-infor">
+                                    <h3>Adidas NEO</h3>
+                                    <span>2,000,000 đ</span>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="imgTitle">
+                                    <img src="http://bizweb.dktcdn.net/thumb/large/100/369/492/products/kp2igvwpe3fcp5aflh6y.jpg?v=1572235245000"
+                                        alt="" />
+                                </div>
+                                <div class="product-suggestion-button">
+                                    <button>MUA NGAY</button>
+                                </div>
+                                <div class="product-suggestion-infor">
+                                    <h3>Adidas NEO</h3>
+                                    <span>2,000,000 đ</span>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="imgTitle">
+                                    <img src="http://bizweb.dktcdn.net/thumb/large/100/369/492/products/mett1dtocrrrd3fheor1.jpg?v=1572235498000"
+                                        alt="" />
+                                </div>
+                                <div class="product-suggestion-button">
+                                    <button>MUA NGAY</button>
+                                </div>
+                                <div class="product-suggestion-infor">
+                                    <h3>Adidas NEO</h3>
+                                    <span>2,000,000 đ</span>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="imgTitle">
+                                    <img src="http://bizweb.dktcdn.net/thumb/large/100/369/492/products/hbu97l3vnaf68lb9mpnz.jpg?v=1572233341000"
+                                        alt="" />
+                                </div>
+
+                                <div class="product-suggestion-button">
+                                    <button>MUA NGAY</button>
+                                </div>
+                                <div class="product-suggestion-infor">
+                                    <h3>Adidas NEO</h3>
+                                    <span>2,000,000 đ</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="MS-controls">
+                            <button class="MS-left">
+                                <i class="fa fa-angle-left" aria-hidden="true"></i>
+                            </button>
+                            <button class="MS-right">
+                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{> web/footer}}
+    </div>
+    <script>
+        $('#basicSlider').multislider({
+            continuous: true,
+            duration: 2000
+        });
+        $('#mixedSlider').multislider({
+            duration: 750,
+            interval: 3000
+        });
+    </script>
+</body>
+<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36251023-1']);
+    _gaq.push(['_setDomainName', 'jqueryscript.net']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+<script>
+    function process(v,e) {
+        var value = parseInt(document.getElementById('v').value);
+        value += v;
+        document.getElementById('v').value = value;
+        
+    }
+</script>
+</body>
+
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web bán hàng</title>
+    <link rel="stylesheet" href="web/css/cart.css" />
+    <link rel="stylesheet" href="web/css/base.css" />
+    <link rel="stylesheet" href="web/css/responsive.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="web/font/fontawesome-free-5.14.0/css/all.min.css"
+    />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="https://bizweb.dktcdn.net/100/369/492/themes/741260/assets/logo.png?1594607980046"
+    />
+  </head>
+  <body>
+    <div class="app">
+      {{> web/header}}
+
+      <!-- Title Header -->
+      <div class="header-title">
+        <div class="header-title-body">
+          <h3 class="header-title-body-category">GIỎ HÀNG</h3>
+          <span>Trang chủ /</span>
+
+          <span><a href="#" class="header-title-body-link">Giỏ hàng</a></span>
+        </div>
+      </div>
+      <div class="cart-table">
+        <div class="container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Sản phẩm</th>
+                <th>Số lượng</th>
+                <th>Tổng tiền</th>
+                <th>Xóa</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="cart-table-product">
+                    <div class="cart-table-product-img">
+                      <img
+                        src="https://bizweb.dktcdn.net/thumb/compact/100/369/492/products/hbu97l3vnaf68lb9mpnz.jpg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="cart-table-product-infor">
+                      <p>Adidas NEO Men White</p>
+                      <p>2.100.000 đ</p>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="cart-table-quantum">
+                    <button class="cart-table-quantum-minus">-</button>
+                    <span class="cart-table-quantum-text">1</span>
+                    <button class="cart-table-quantum-plus">+</button>
+                  </div>
+                </td>
+                <td>
+                  <div class="cart-table-price">
+                    <span>2.100.000 đ</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="cart-table-delele">
+                    <i class="fas fa-trash"></i>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="cart-table-product">
+                    <div class="cart-table-product-img">
+                      <img
+                        src="https://bizweb.dktcdn.net/thumb/compact/100/369/492/products/hbu97l3vnaf68lb9mpnz.jpg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="cart-table-product-infor">
+                      <p>Adidas NEO Men White</p>
+                      <p>2.100.000 đ</p>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="cart-table-quantum">
+                    <button class="cart-table-quantum-minus">-</button>
+                    <span class="cart-table-quantum-text">1</span>
+                    <button class="cart-table-quantum-plus">+</button>
+                  </div>
+                </td>
+                <td>
+                  <div class="cart-table-price">
+                    <span>2.100.000 đ</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="cart-table-delele">
+                    <i class="fas fa-trash"></i>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="cart-table-product">
+                    <div class="cart-table-product-img">
+                      <img
+                        src="https://bizweb.dktcdn.net/thumb/compact/100/369/492/products/hbu97l3vnaf68lb9mpnz.jpg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="cart-table-product-infor">
+                      <p>Adidas NEO Men White</p>
+                      <p>2.100.000 đ</p>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="cart-table-quantum">
+                    <button class="cart-table-quantum-minus">-</button>
+                    <span class="cart-table-quantum-text">1</span>
+                    <button class="cart-table-quantum-plus">+</button>
+                  </div>
+                </td>
+                <td>
+                  <div class="cart-table-price">
+                    <span>2.100.000 đ</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="cart-table-delele">
+                    <i class="fas fa-trash"></i>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="total">
+        <div class="container">
+          <span>Tổng tiền</span>
+          <span>2.100.000 đ</span>
+        </div>
+      </div>
+      <div class="cart-button">
+        <div class="container">
+          <form action="payment.html">
+            <a href="index.html" class="cart-button-continue">
+              Tiếp tục mua hàng
+            </a>
+            <button type="submit" class="cart-button-payment">
+              Tiến hành thanh toán
+            </button>
+          </form>
+        </div>
+      </div>
+
+     {{> web/footer}}
+    </div>
+  </body>
+</html>

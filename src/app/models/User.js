@@ -4,6 +4,7 @@ const User = new Schema({
     name: { type: String },
     username: { type: String },
     password: { type: String },
+    role: { type:String},
     createAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },
   });

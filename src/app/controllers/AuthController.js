@@ -3,6 +3,7 @@ const {
   mutipleMongooseToObject,
   mongooseToObject,
 } = require("../../util/mongoose");
+
 class AuthController {
   loginForm(req, res, next) {
     res.render("auth/login");
@@ -13,6 +14,7 @@ class AuthController {
       password: req.body.password,
     });
     if (user){
+      res.cookie('userID',user.id);
       res.redirect("/admin");
     }
     else{

@@ -6,13 +6,16 @@ module.exports.requireAuth = function (req, res, next) {
   }
   var user = User.findById(req.cookies.userID).then((user) => {
     if (user.role == "user") {
-      res.redirect("/login-form");
+      res.redirect("/");
       return;
     }
+    
   });
   if (!user && user.role !== "admin") {
     res.redirect("/login-form");
     return;
-  }
+  } 
+  
+
   next();
 };

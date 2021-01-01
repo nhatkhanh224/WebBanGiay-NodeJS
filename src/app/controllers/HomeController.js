@@ -1,4 +1,5 @@
 const Product = require("../models/Product");
+const Cart = require("../models/Cart");
 const {
   mutipleMongooseToObject,
   mongooseToObject,
@@ -37,10 +38,27 @@ class HomeController {
       })
       .catch(next);
   }
-  cart(req, res, next){
-    res.render("web/cart", {
-      
-    })
+  addToCart(req, res, next) {
+    const cart = new Cart(req.body);
+    var id_user = req.cookies.userID;
+    cart.id_user = id_user;
+    cart
+      .save()
+      .then(() => res.redirect(`/cart`))
+      .catch((error) => {});
+  }
+  cart(req, res, next) {
+    var id = req.cookies.userID;
+    Cart.find({})
+      .where("id_user")
+      .equals(id)
+      .then((productsOfUser) => {
+        res.render("web/cart", {
+          productsOfUser: mutipleMongooseToObject(productsOfUser),
+          
+        });
+      })
+      .catch(next);
   }
 }
 module.exports = new HomeController();

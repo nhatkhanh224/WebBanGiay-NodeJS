@@ -78,21 +78,45 @@
                             <span class="product-name-brand">Thương hiệu: {{details.slug}} /</span>
 
                             <hr />
-                            <form action="">
+                            <form action="/addToCart" method="POST">
+                                <input type="hidden" name="id_product" value="{{details._id}}" />
+                                <input type="hidden" name="productName" value="{{details.name}}" />
+                                <input type="hidden" name="price" value="{{details.price}}">
+                                <input type="hidden" name="thumbnail" value="{{details.thumbnail}}">
+                                
                                 <div class="price">
                                     <span class="discount-price">{{details.price}} đ</span>
                                     <span class="old-price">2.000.000đ</span>
                                 </div>
+                                <div class="form-group">
+                                    <label for="sel1" style="font-size:20px">Size:</label>
+                                    <select class="form-control" id="sel1" style="font-size:20px" name="size">
+                                        <option>37</option>
+                                        <option>38</option>
+                                        <option>39</option>
+                                        <option>40</option>
+                                        <option>41</option>
+                                        <option>42</option>
+                                        <option>43</option>
+
+                                    </select>
+                                </div>
+
                                 <div class="form-option">
+
                                     <div class="quantum">
+
                                         <div class="btn-number">
-                                            <button type="button" class="btn-number-minus" onclick='javascript:process(-1)'>-</button>
-                                            <input type="text" value="1" size="10" class="btn-number-input" id='v' name='v' />
-                                            <button type="button" class="btn-number-plus" onclick='javascript:process(1)'>+</button>
+                                            <button type="button" class="btn-number-minus"
+                                                onclick='javascript:process(-1)'>-</button>
+                                            <input type="text" value="1" size="10" class="btn-number-input" id='quantum'
+                                                name='quantum' />
+                                            <button type="button" class="btn-number-plus"
+                                                onclick='javascript:process(1)'>+</button>
                                         </div>
                                     </div>
                                     <div class="form-option-button">
-                                        <button class="btn-add-to-cart">Mua ngay</button>
+                                        <button type="submit" class="btn-add-to-cart">Mua ngay</button>
                                     </div>
                                 </div>
                                 <div class="product-information-footer">
@@ -273,11 +297,11 @@
 
 </script>
 <script>
-    function process(v,e) {
-        var value = parseInt(document.getElementById('v').value);
-        value += v;
-        document.getElementById('v').value = value;
-        
+    function process(quantum, e) {
+        var value = parseInt(document.getElementById('quantum').value);
+        value += quantum;
+        document.getElementById('quantum').value = value;
+
     }
 </script>
 </body>

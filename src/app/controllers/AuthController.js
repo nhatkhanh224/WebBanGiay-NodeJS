@@ -13,14 +13,19 @@ class AuthController {
       username: req.body.username,
       password: req.body.password,
     });
-    if (user){
-      res.cookie('userID',user.id);
+    if (user) {
+      res.cookie("userID", user.id, {
+        maxAge: 24 * 60 * 60 * 1000,
+      });
       res.redirect("/admin");
-    }
-    else{
+    } else {
       res.redirect("/login-form");
-    } 
+    }
     next();
   }
+  logout(req, res, next){
+    res.cookie('userID', {}, {maxAge: -1});
+    res.redirect('/')
+  };
 }
 module.exports = new AuthController();

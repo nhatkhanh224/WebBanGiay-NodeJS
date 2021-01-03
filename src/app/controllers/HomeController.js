@@ -1,5 +1,8 @@
 const Product = require("../models/Product");
 const Cart = require("../models/Cart");
+const User = require("../models/User");
+const Order = require("../models/Order");
+const OrderDetail = require("../models/OrderDetail");
 const {
   mutipleMongooseToObject,
   mongooseToObject,
@@ -55,10 +58,55 @@ class HomeController {
       .then((productsOfUser) => {
         res.render("web/cart", {
           productsOfUser: mutipleMongooseToObject(productsOfUser),
-          
         });
       })
       .catch(next);
+  }
+  payment(req, res, next) {
+    var id = req.cookies.userID;
+    Cart.find({})
+      .where("id_user")
+      .equals(id)
+      .then((carts) => {
+        User.findOne({ _id: id }).then((user) => {
+          res.render("web/payment", {
+            carts: mutipleMongooseToObject(carts),
+            user: mongooseToObject(user),
+          });
+        });
+      })
+      .catch(next);
+  }
+  async order(req, res, next) {
+    var id = req.cookies.userID;
+    const findCart = (value) => {
+      return Cart.find({ id_user: value }).exec();
+    };
+    var cart = await findCart(id);
+    const order = new Order({
+      id_product: req.cookies.userID,
+      id_user: id,
+      email: req.body.email,
+      name: req.body.name,
+      phone: req.body.phone,
+      address: req.body.address,
+      totalPrice: req.body.totalPrice,
+      status: req.body.status,
+      method: req.body.method,
+      cart: cart,
+    });
+
+    order
+      .save()
+      .then(() => res.redirect(`/`))
+      .catch((error) => {});
+    Cart.deleteMany({ id_user: id })
+      .then(function () {
+        console.log("Data deleted"); // Success
+      })
+      .catch(function (error) {
+        console.log(error); // Failure
+      });
   }
 }
 module.exports = new HomeController();

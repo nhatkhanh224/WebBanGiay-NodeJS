@@ -18,10 +18,13 @@ app.engine(
     extname: ".hbs",
     defaultLayout: "main",
     helpers: {
-      calc: function(firstReturn, secondReturn){
-        let value = firstReturn * secondReturn; 
-        return value; 
-     }
+      calc: function (firstReturn, secondReturn) {
+        let value = firstReturn * secondReturn;
+        return value;
+      },
+      formatCash: function (money) {
+        return money.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+      },
     },
   })
 );

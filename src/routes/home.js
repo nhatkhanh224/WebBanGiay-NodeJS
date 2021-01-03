@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const homeController = require("../app/controllers/HomeController");
+router.post('/order', homeController.order);
+router.get('/payment', homeController.payment);
 router.post('/addToCart', homeController.addToCart);
 router.get('/cart', homeController.cart);
 router.get('/:slug-:id', homeController.showDetails);

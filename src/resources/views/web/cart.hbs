@@ -83,7 +83,7 @@
     <div class="total">
       <div class="container">
         <span>Tổng tiền</span>
-        <span>{{total}} đ</span>
+        <span id="totalPrice"></span>
       </div>
     </div>
     <div class="cart-button">
@@ -92,9 +92,9 @@
           <a href="/" class="cart-button-continue">
             Tiếp tục mua hàng
           </a>
-          <button type="submit" class="cart-button-payment">
+          <a href="/payment" class="cart-button-continue" style="color:crimson">
             Tiến hành thanh toán
-          </button>
+          </a>
         </form>
       </div>
     </div>
@@ -103,8 +103,17 @@
   </div>
   <script>
     var ek = [];
+    var totalPrice = 0;
     $('.price').each(function () { ek.push($(this).text()); });
-    console.log(ek);
+    var price = ek.map(function (x) {
+      return parseInt(x, 10);
+    });
+    for (var i = 0; i < price.length; i++) {
+      totalPrice += price[i];
+    }
+    console.log(totalPrice);
+    var txtTotal = $('#totalPrice');
+    txtTotal.text(totalPrice + ' đ');
   </script>
 </body>
 

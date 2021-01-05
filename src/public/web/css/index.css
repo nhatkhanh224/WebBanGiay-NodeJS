@@ -1,21 +1,16 @@
-.slide-menu
-{
+.slide-menu {
   width: 100%;
   height: 100%;
   z-index: 999;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   display: none;
-  
 }
-.slide-menu-list
-{
+.slide-menu-list {
   list-style: none;
-  padding:9px 20px;
-  
+  padding: 9px 20px;
 }
-.slide-menu-list-item
-{
+.slide-menu-list-item {
   color: #fff;
   font-size: 14px;
   border-bottom: 1px solid #f56472;
@@ -24,7 +19,7 @@
 .slide-menu-left {
   height: 100%;
   width: 280px;
-  background-color:#f72b3f;
+  background-color: #f72b3f;
   position: fixed;
   z-index: 999;
   display: none;
@@ -339,24 +334,44 @@
   text-align: center;
   padding: 10px 2px;
 }
-.scrollToTop{
-  width:60px; 
-  height:60px;
-  padding:20px; 
-  text-align:center; 
+.scrollToTop {
+  width: 60px;
+  height: 60px;
+  padding: 20px;
+  text-align: center;
   background: #f72b3f;
   font-weight: bold;
   color: #fff;
   border-radius: 50%;
   text-decoration: none;
-  position:fixed;
-  bottom:75px;
-  right:40px;
+  position: fixed;
+  bottom: 75px;
+  right: 40px;
   font-size: 15px;
-
-  
-  
 }
-.scrollToTop:hover{
-  text-decoration:none;
+.scrollToTop:hover {
+  text-decoration: none;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  margin-top: 38px;
+}
+.dropdown-content-item {
+  color: #212121;
+}
+.dropdown-content-item:hover {
+  text-decoration: none;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
 }

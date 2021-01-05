@@ -2,7 +2,7 @@ const Product = require("../models/Product");
 const Cart = require("../models/Cart");
 const User = require("../models/User");
 const Order = require("../models/Order");
-const OrderDetail = require("../models/OrderDetail");
+
 const {
   mutipleMongooseToObject,
   mongooseToObject,
@@ -61,6 +61,16 @@ class HomeController {
         });
       })
       .catch(next);
+  }
+  async editQuantum(req, res, next) {
+    var id=req.params.id;
+    var number=Number(req.params.number);
+    var cart=await Cart.findById(id, 'quantum').exec();
+    var quantum=cart.quantum;
+    var newquantum=quantum+number;
+    Cart.updateOne({ _id: id },{quantum:newquantum} ) //req.body: Object da sua
+    .then(() => res.redirect(`/cart`))
+    .catch(next);
   }
   payment(req, res, next) {
     var id = req.cookies.userID;

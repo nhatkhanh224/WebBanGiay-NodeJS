@@ -23,7 +23,13 @@ app.engine(
         return value;
       },
       formatCash: function (money) {
-        return money.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+        return money.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
+      },
+      equalOfCart: function (a, b) {
+        if (a > b) {
+          return true;
+        }
+        return false;
       },
     },
   })

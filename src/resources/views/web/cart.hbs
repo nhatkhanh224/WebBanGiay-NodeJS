@@ -58,9 +58,11 @@
               </td>
               <td>
                 <div class="cart-table-quantum">
-                  <button class="cart-table-quantum-minus">-</button>
+                  {{#if (equalOfCart this.quantum 1)}}
+                  <button class="cart-table-quantum-minus"><a style="text-decoration:none" href="/cart/quantum/{{this._id}}/-1">-</a></button>
+                  {{/if}}
                   <span class="cart-table-quantum-text">{{this.quantum}}</span>
-                  <button class="cart-table-quantum-plus">+</button>
+                  <button class="cart-table-quantum-plus"><a style="text-decoration:none" href="/cart/quantum/{{this._id}}/1">+</a></button>
                 </div>
               </td>
               <td>
@@ -71,7 +73,8 @@
               </td>
               <td>
                 <div class="cart-table-delele">
-                  <i class="fas fa-trash"></i>
+                  <a href=""><i class="fas fa-trash"></i></a>
+                  
                 </div>
               </td>
             </tr>

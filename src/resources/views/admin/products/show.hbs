@@ -84,7 +84,7 @@
                         <td>{{this.price}} đ</td>
                         <td>{{this.createAt}}</td>
                         <td><a href="product-edit-{{this._id}}"><i class="fas fa-edit"></i></a>
-                            <a href="product-create" data-toggle="modal" data-id="{{this._id}}"
+                            <a href="" data-toggle="modal" data-id="{{this._id}}"
                                 data-target="#delete-product-model"><i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tbody>
@@ -99,13 +99,13 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Delete course</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Delete product</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        Are you sure you want to delete ?
+                        Are you sure want to delete ?
                     </div>
                     <div class="modal-footer">
                         <button id="btn-delete-product" type="button" class="btn btn-danger">Delete</button>

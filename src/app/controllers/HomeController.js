@@ -63,14 +63,14 @@ class HomeController {
       .catch(next);
   }
   async editQuantum(req, res, next) {
-    var id=req.params.id;
-    var number=Number(req.params.number);
-    var cart=await Cart.findById(id, 'quantum').exec();
-    var quantum=cart.quantum;
-    var newquantum=quantum+number;
-    Cart.updateOne({ _id: id },{quantum:newquantum} ) //req.body: Object da sua
-    .then(() => res.redirect(`/cart`))
-    .catch(next);
+    var id = req.params.id;
+    var number = Number(req.params.number);
+    var cart = await Cart.findById(id, "quantum").exec();
+    var quantum = cart.quantum;
+    var newquantum = quantum + number;
+    Cart.updateOne({ _id: id }, { quantum: newquantum }) //req.body: Object da sua
+      .then(() => res.redirect(`/cart`))
+      .catch(next);
   }
   payment(req, res, next) {
     var id = req.cookies.userID;
@@ -85,6 +85,11 @@ class HomeController {
           });
         });
       })
+      .catch(next);
+  }
+  destroyCart(req, res, next) {
+    Cart.deleteOne({ _id: req.params.id }, req.body) //req.body: Object da sua
+      .then(() => res.redirect(`/cart`))
       .catch(next);
   }
   async order(req, res, next) {

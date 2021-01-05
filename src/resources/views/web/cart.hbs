@@ -59,10 +59,12 @@
               <td>
                 <div class="cart-table-quantum">
                   {{#if (equalOfCart this.quantum 1)}}
-                  <button class="cart-table-quantum-minus"><a style="text-decoration:none" href="/cart/quantum/{{this._id}}/-1">-</a></button>
+                  <button class="cart-table-quantum-minus"><a style="text-decoration:none"
+                      href="/cart/quantum/{{this._id}}/-1">-</a></button>
                   {{/if}}
                   <span class="cart-table-quantum-text">{{this.quantum}}</span>
-                  <button class="cart-table-quantum-plus"><a style="text-decoration:none" href="/cart/quantum/{{this._id}}/1">+</a></button>
+                  <button class="cart-table-quantum-plus"><a style="text-decoration:none"
+                      href="/cart/quantum/{{this._id}}/1">+</a></button>
                 </div>
               </td>
               <td>
@@ -73,8 +75,9 @@
               </td>
               <td>
                 <div class="cart-table-delele">
-                  <a href=""><i class="fas fa-trash"></i></a>
-                  
+                  <a href="" data-toggle="modal" data-id="{{this._id}}" data-target="#delete-cart"><i
+                      class="fas fa-trash"></i></a>
+
                 </div>
               </td>
             </tr>
@@ -101,7 +104,28 @@
         </form>
       </div>
     </div>
+    <!-- Modal -->
+    <div class="modal fade" id="delete-cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Delete product of cart</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" style="font-size: 20px;">
+            Are you sure want to delete ?
+          </div>
+          <div class="modal-footer">
+            <button id="btn-delete-cart" type="button" class="btn btn-danger" style="font-size: 20px;">Delete</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" style="font-size: 20px;">Close</button>
 
+          </div>
+        </div>
+      </div>
+    </div>
     {{> web/footer}}
   </div>
   <script>
@@ -117,6 +141,30 @@
     console.log(totalPrice);
     var txtTotal = $('#totalPrice');
     txtTotal.text(totalPrice + ' đ');
+  </script>
+  {{!-- Delete form --}}
+  <form method="POST" name="delete-product-form">
+  </form>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var productId;
+      var deleteForm = document.forms['delete-product-form'];
+
+
+
+      $('#delete-cart').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        cartId = button.data('id'); //Get id
+
+      });
+      var btnDeleteProduct = document.getElementById('btn-delete-cart');
+      btnDeleteProduct.onclick = function (event) {
+        deleteForm.action = 'cart/' + cartId + '?_method=DELETE';
+        deleteForm.submit();
+      }
+
+
+    });
   </script>
 </body>
 

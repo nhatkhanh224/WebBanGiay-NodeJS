@@ -37,62 +37,89 @@
         {{> admin/menu}}
 
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-            <div class="container">
-                <h2 style="text-align: center;">PRODUCTS</h2>
-                <p>The list of products:</p>
-                <div style="margin-bottom:10px;">
-                    <a href="product-create"><i class="fas fa-plus-square"
-                            style="font-size:30px;margin-right: 10px;"></i>Add to product</a>
+        <form action="products/handle-form-actions" name="container-form" method="POST">
+            <div class="content-wrapper">
+                <div class="container">
+                    <h2 style="text-align: center;">PRODUCTS</h2>
+                    <p>The list of products:</p>
+                    <div style="margin-bottom:10px;">
+                        <a href="product-create"><i class="fas fa-plus-square"
+                                style="font-size:30px;margin-right: 10px;"></i>Add to product</a>
+                        <a href="product-trash"><i class="fas fa-trash"
+                                style="font-size:30px;margin-right: 10px;"></i>Bin
+                            ({{deletedCount}})
+                        </a>
 
-                </div>
+                    </div>
+                    <div class="mt-4 d-flex align-items-center">
 
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>
+
+                        <div class="form-group ">
+                            <label for="exampleFormControlSelect1"></label>
+                            <select class="form-control form-control-sm checkbox-select-all-options" name="action"
+                                required>
+                                <option value="">--Action--</option>
+                                <option value="delete">Delete</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-check-all check-all-submit-btn btn-sm disabled"
+                            style="margin-top: 10px;">Action</button>
+                    </div>
+
+
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input" id="checkbox-all"
+                                                value="">Select all
+                                        </label>
+                                    </div>
+                                </th>
+                                <th>Name</th>
+                                <th>Thumbnail</th>
+                                <th>Short description</th>
+                                <th>Price</th>
+                                <th>Created at</th>
+                                <th>Option</th>
+
+
+                            </tr>
+                        </thead>
+
+
+                        {{#each products}}
+                        <tbody>
+                            <td>
                                 <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input type="checkbox" class="form-check-input" value="">Select all
-                                    </label>
+                                    <input class="form-check-input" type="checkbox" name="productIds[]"
+                                        value="{{this._id}}" id="defaultCheck1">
                                 </div>
-                            </th>
-                            <th>Name</th>
-                            <th>Thumbnail</th>
-                            <th>Short description</th>
-                            <th>Price</th>
-                            <th>Created at</th>
-                            <th>Option</th>
+                            </td>
+                            <td>{{this.name}}</td>
+                            <td><img src="{{this.thumbnail}}" alt="" width="200px"></td>
+                            <td>{{this.description}}</td>
+                            <td>{{this.price}} đ</td>
+                            <td>{{this.createAt}}</td>
+                            <td><a href="product-edit-{{this._id}}"><i class="fas fa-edit"></i></a>
+                                <a href="" data-toggle="modal" data-id="{{this._id}}"
+                                    data-target="#delete-product-model"><i class="fas fa-trash-alt"></i></a>
+                            </td>
+                            {{else}}
+                            <tr>
+                                <td colspan="7">You haven't added any products <a href="product-create">Add product</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                        {{/each}}
 
-
-                        </tr>
-                    </thead>
-
-
-                    {{#each products}}
-                    <tbody>
-                        <td>
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" value="">
-                                </label>
-                            </div>
-                        </td>
-                        <td>{{this.name}}</td>
-                        <td><img src="{{this.thumbnail}}" alt="" width="200px"></td>
-                        <td>{{this.description}}</td>
-                        <td>{{this.price}} đ</td>
-                        <td>{{this.createAt}}</td>
-                        <td><a href="product-edit-{{this._id}}"><i class="fas fa-edit"></i></a>
-                            <a href="" data-toggle="modal" data-id="{{this._id}}"
-                                data-target="#delete-product-model"><i class="fas fa-trash-alt"></i></a>
-                        </td>
-                    </tbody>
-                    {{/each}}
-
-                </table>
+                    </table>
+                </div>
             </div>
-        </div>
+        </form>
+
         <!-- Modal -->
         <div class="modal fade" id="delete-product-model" tabindex="-1" role="dialog"
             aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -127,9 +154,10 @@
         document.addEventListener('DOMContentLoaded', function () {
             var productId;
             var deleteForm = document.forms['delete-product-form'];
-
-
-
+            var checkboxAll = $('#checkbox-all');
+            var productItemCheckbox = $('input[name="productIds[]"]');
+            var checkAllSubmitBtn = $('.check-all-submit-btn');
+            var containerForm = document.forms['container-form'];
             $('#delete-product-model').on('show.bs.modal', function (event) {
                 var button = $(event.relatedTarget);
                 productId = button.data('id'); //Get id
@@ -140,6 +168,44 @@
                 deleteForm.action = 'products/' + productId + '?_method=DELETE';
                 deleteForm.submit();
             }
+            //Checlbox all changed
+            checkboxAll.change(function () {
+                var isCheckedAll = $(this).prop('checked');
+                productItemCheckbox.prop('checked', isCheckedAll);
+                renderCheckAllSubmitBtn();
+            })
+            //Product item checkbox changed
+            productItemCheckbox.change(function () {
+                var isCheckedAll = productItemCheckbox.length === $('input[name="productIds[]"]:checked').length;
+                checkboxAll.prop('checked', isCheckedAll);
+                renderCheckAllSubmitBtn();
+            })
+            checkAllSubmitBtn.click(function (e) {
+                e.preventDefault();
+                var isSubmitable = !$(this).hasClass('disabled');
+                
+                if (isSubmitable) {
+                    containerForm.submit();
+                }
+            })
+            checkAllSubmitBtn.on('submit', function (e) {
+                var isSubmitable = !$(this).hasClass('disabled');
+                if (!isSubmitable) {
+                    e.preventDefault();
+                }
+            })
+            //Render checkall submit button
+            function renderCheckAllSubmitBtn() {
+                var checkedCount = $('input[name="productIds[]"]:checked').length;
+
+                if (checkedCount > 0) {
+                    checkAllSubmitBtn.removeClass('disabled');
+                } else {
+                    checkAllSubmitBtn.addClass('disabled');
+                }
+            }
+
+
 
 
         });

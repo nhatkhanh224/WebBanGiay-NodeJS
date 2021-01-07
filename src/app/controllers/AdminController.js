@@ -1,7 +1,6 @@
 const Product = require("../models/Product");
 const Category = require("../models/Category");
 
-
 const {
   mutipleMongooseToObject,
   mongooseToObject,
@@ -12,13 +11,13 @@ class AdminController {
     res.render("admin/admin");
   }
   show(req, res, next) {
-    Product.find({})
-      .then((products) => {
+    Promise.all([Product.find({}), Product.countDocumentsDeleted()])
+      .then(([products, deletedCount]) =>
         res.render("admin/products/show", {
+          deletedCount,
           products: mutipleMongooseToObject(products),
-          
-        });
-      })
+        })
+      )
       .catch(next);
   }
   create(req, res, next) {
@@ -57,10 +56,40 @@ class AdminController {
       .catch(next);
     // res.json(req.body);
   }
-  destroy(req, res,next) {
-    Product.deleteOne({ _id: req.params.id }, req.body) //req.body: Object da sua
-    .then(() => res.redirect(`/admin/products`))
-    .catch(next);
+  destroy(req, res, next) {
+    Product.delete({ _id: req.params.id }) //req.body: Object da sua
+      .then(() => res.redirect(`/admin/products`))
+      .catch(next);
+  }
+  trash(req, res, next) {
+    Product.findDeleted({})
+      .then((products) => {
+        res.render("admin/products/trash", {
+          products: mutipleMongooseToObject(products),
+        });
+      })
+      .catch(next);
+  }
+  restore(req, res, next) {
+    Product.restore({ _id: req.params.id }) //req.body: Object da sua
+      .then(() => res.redirect(`/admin/products`))
+      .catch(next);
+  }
+  forceDelete(req, res, next) {
+    Product.deleteOne({ _id: req.params.id })
+      .then(() => res.redirect("back"))
+      .catch(next);
+  }
+  handleFormAction(req, res, next) {
+    switch (req.body.action) {
+      case "delete":
+        Product.delete({ _id: { $in: req.body.productIds } })
+          .then(() => res.redirect("back"))
+          .catch(next);
+        break;
+      default:
+        res.json({ message: "Action is invalid!" });
+    }
   }
 }
 module.exports = new AdminController();

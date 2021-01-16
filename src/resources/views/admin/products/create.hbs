@@ -45,17 +45,18 @@
                     </div>
                     <div class="form-group">
                         <label for="sel1">Select list:</label>
-                        <select class="form-control" id="sel1" name="categoryId">
+                        <select class="form-control category" onchange="getSlug()" id="sel1" name="categoryId">
                             <option>Select category</option>
                             {{#each categories}}
                             <option value="{{this._id}}">{{this.name}}</option>
                             {{/each}}
                         </select>
                     </div>
-                    <div class="form-group">
+                    {{!-- <div class="form-group">
                         <label>Slug:</label>
-                        <input type="text" class="form-control" name="slug" id="slug">
-                    </div>
+                        <input type="text" class="form-control slug" name="slug" id="slug">
+                    </div> --}}
+                    <input type="hidden" name="slug" id="slug">
                     <div class="form-group">
                         <label>Thumbnail:</label>
                         <input type="text" class="form-control" name="thumbnail" id="thumbnail">
@@ -80,7 +81,14 @@
 
     </div>
     <!-- ./wrapper -->
-
+    <script>
+        function getSlug(){
+            var category = $('.category option:selected').text();
+            var slug=$('#slug');
+            slug.val(category.trim());
+            
+        }
+    </script>
     <!-- jQuery -->
     <script src="admin/plugins/jquery/jquery.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
@@ -115,6 +123,7 @@
     <script src="admin/dist/js/pages/dashboard.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="admin/dist/js/demo.js"></script>
+    
 </body>
 
 </html>
